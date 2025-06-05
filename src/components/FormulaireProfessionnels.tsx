@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,6 +21,7 @@ export const FormulaireProfessionnels = () => {
     ville: "",
     situationActuelle: "",
     typeContrat: "",
+    nomEntreprise: "",
     formationSouhaitee: "",
     autoriseMarketing: false,
   });
@@ -69,6 +69,7 @@ export const FormulaireProfessionnels = () => {
         ville: "",
         situationActuelle: "",
         typeContrat: "",
+        nomEntreprise: "",
         formationSouhaitee: "",
         autoriseMarketing: false,
       });
@@ -188,20 +189,36 @@ export const FormulaireProfessionnels = () => {
             </Select>
           </div>
 
-          <div>
-            <Label htmlFor="typeContrat" className="text-simplonBlue font-medium">Type de contrat *</Label>
-            <Select onValueChange={(value) => handleInputChange("typeContrat", value)}>
-              <SelectTrigger className="border-simplonGrayBg focus:border-simplonBlue">
-                <SelectValue placeholder="Sélectionnez le type de contrat" />
-              </SelectTrigger>
-              <SelectContent className="bg-white border border-simplonGrayBg">
-                <SelectItem value="cdi">CDI</SelectItem>
-                <SelectItem value="cdd">CDD</SelectItem>
-                <SelectItem value="anapec">Anapec</SelectItem>
-                <SelectItem value="stage_pre_embauche">Stage pré-embauche</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          {formData.situationActuelle === "working" && (
+            <div>
+              <Label htmlFor="typeContrat" className="text-simplonBlue font-medium">Type de contrat *</Label>
+              <Select onValueChange={(value) => handleInputChange("typeContrat", value)}>
+                <SelectTrigger className="border-simplonGrayBg focus:border-simplonBlue">
+                  <SelectValue placeholder="Sélectionnez le type de contrat" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border border-simplonGrayBg">
+                  <SelectItem value="cdi">CDI</SelectItem>
+                  <SelectItem value="cdd">CDD</SelectItem>
+                  <SelectItem value="anapec">Anapec</SelectItem>
+                  <SelectItem value="stage_pre_embauche">Stage pré-embauche</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          )}
+
+          {formData.situationActuelle === "entrepreneur" && (
+            <div>
+              <Label htmlFor="nomEntreprise" className="text-simplonBlue font-medium">Nom de votre entreprise / profil sur les sites de freelance *</Label>
+              <Input
+                id="nomEntreprise"
+                required
+                value={formData.nomEntreprise}
+                onChange={(e) => handleInputChange("nomEntreprise", e.target.value)}
+                className="border-simplonGrayBg focus:border-simplonBlue"
+                placeholder="Entrez le nom de votre entreprise ou votre profil freelance"
+              />
+            </div>
+          )}
 
           <div>
             <Label htmlFor="formationSouhaitee" className="text-simplonBlue font-medium">Formation souhaitée *</Label>
