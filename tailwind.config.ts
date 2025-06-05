@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,12 +62,27 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				simplonBgRed: "#FCF3F3",
+				simplonBgBlue: "#F2F7FC",
+				simplonRed: "#E40046",
+				simplonBlue: "#123744",
+				simplonBlue2: "#0779DB",
+				simplonBlueSecondary: "#0072CE",
+				simplonGrayBody: "#5E6A6E",
+				simplonGrayBg: "#e7ebec",
+				dashboardBorderColor: "#123744",
+				dashboardActiveIconColor: "#123744",
+				dashboardActiveTextColor: "#123744"
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				body: ["Poppins", "serif"],
+				title: ["DM Sans", "serif"],
 			},
 			keyframes: {
 				'accordion-down': {

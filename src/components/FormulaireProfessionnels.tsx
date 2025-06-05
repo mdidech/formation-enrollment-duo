@@ -86,72 +86,77 @@ export const FormulaireProfessionnels = () => {
 
   return (
     <Card className="shadow-lg border-0">
-      <CardHeader className="bg-purple-600 text-white rounded-t-lg">
-        <CardTitle className="text-2xl text-center">Formulaire d'inscription</CardTitle>
+      <CardHeader className="bg-simplonRed text-white rounded-t-lg">
+        <CardTitle className="text-2xl text-center font-title">Formulaire d'inscription</CardTitle>
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="p-6 font-body">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="prenom">Prénom *</Label>
+              <Label htmlFor="prenom" className="text-simplonBlue font-medium">Prénom *</Label>
               <Input
                 id="prenom"
                 required
                 value={formData.prenom}
                 onChange={(e) => handleInputChange("prenom", e.target.value)}
+                className="border-simplonGrayBg focus:border-simplonBlue"
               />
             </div>
             <div>
-              <Label htmlFor="nom">Nom *</Label>
+              <Label htmlFor="nom" className="text-simplonBlue font-medium">Nom *</Label>
               <Input
                 id="nom"
                 required
                 value={formData.nom}
                 onChange={(e) => handleInputChange("nom", e.target.value)}
+                className="border-simplonGrayBg focus:border-simplonBlue"
               />
             </div>
           </div>
 
           <div>
-            <Label htmlFor="email">Email *</Label>
+            <Label htmlFor="email" className="text-simplonBlue font-medium">Email *</Label>
             <Input
               id="email"
               type="email"
               required
               value={formData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
+              className="border-simplonGrayBg focus:border-simplonBlue"
             />
           </div>
 
           <div>
-            <Label htmlFor="telephone">Numéro de téléphone *</Label>
+            <Label htmlFor="telephone" className="text-simplonBlue font-medium">Numéro de téléphone *</Label>
             <Input
               id="telephone"
               type="tel"
               required
               value={formData.telephone}
               onChange={(e) => handleInputChange("telephone", e.target.value)}
+              className="border-simplonGrayBg focus:border-simplonBlue"
             />
           </div>
 
           <div>
-            <Label htmlFor="dateNaissance">Date de naissance *</Label>
+            <Label htmlFor="dateNaissance" className="text-simplonBlue font-medium">Date de naissance *</Label>
             <Input
               id="dateNaissance"
               type="date"
               required
               value={formData.dateNaissance}
               onChange={(e) => handleInputChange("dateNaissance", e.target.value)}
+              className="border-simplonGrayBg focus:border-simplonBlue"
             />
           </div>
 
           <div>
-            <Label htmlFor="genre">Genre *</Label>
+            <Label htmlFor="genre" className="text-simplonBlue font-medium">Genre *</Label>
             <Select onValueChange={(value) => handleInputChange("genre", value)}>
-              <SelectTrigger>
+              <SelectTrigger className="border-simplonGrayBg focus:border-simplonBlue">
                 <SelectValue placeholder="Sélectionnez votre genre" />
               </SelectTrigger>
-              <SelectContent className="bg-white">
+              <SelectContent className="bg-white border border-simplonGrayBg">
                 <SelectItem value="homme">Homme</SelectItem>
                 <SelectItem value="femme">Femme</SelectItem>
                 <SelectItem value="autre">Autre</SelectItem>
@@ -160,22 +165,23 @@ export const FormulaireProfessionnels = () => {
           </div>
 
           <div>
-            <Label htmlFor="ville">Ville *</Label>
+            <Label htmlFor="ville" className="text-simplonBlue font-medium">Ville *</Label>
             <Input
               id="ville"
               required
               value={formData.ville}
               onChange={(e) => handleInputChange("ville", e.target.value)}
+              className="border-simplonGrayBg focus:border-simplonBlue"
             />
           </div>
 
           <div>
-            <Label htmlFor="situationActuelle">Situation actuelle *</Label>
+            <Label htmlFor="situationActuelle" className="text-simplonBlue font-medium">Situation actuelle *</Label>
             <Select onValueChange={(value) => handleInputChange("situationActuelle", value)}>
-              <SelectTrigger>
+              <SelectTrigger className="border-simplonGrayBg focus:border-simplonBlue">
                 <SelectValue placeholder="Sélectionnez votre situation" />
               </SelectTrigger>
-              <SelectContent className="bg-white">
+              <SelectContent className="bg-white border border-simplonGrayBg">
                 <SelectItem value="working">Working</SelectItem>
                 <SelectItem value="entrepreneur">Entrepreneur</SelectItem>
               </SelectContent>
@@ -183,12 +189,12 @@ export const FormulaireProfessionnels = () => {
           </div>
 
           <div>
-            <Label htmlFor="typeContrat">Type de contrat *</Label>
+            <Label htmlFor="typeContrat" className="text-simplonBlue font-medium">Type de contrat *</Label>
             <Select onValueChange={(value) => handleInputChange("typeContrat", value)}>
-              <SelectTrigger>
+              <SelectTrigger className="border-simplonGrayBg focus:border-simplonBlue">
                 <SelectValue placeholder="Sélectionnez le type de contrat" />
               </SelectTrigger>
-              <SelectContent className="bg-white">
+              <SelectContent className="bg-white border border-simplonGrayBg">
                 <SelectItem value="cdi">CDI</SelectItem>
                 <SelectItem value="cdd">CDD</SelectItem>
                 <SelectItem value="anapec">Anapec</SelectItem>
@@ -198,12 +204,12 @@ export const FormulaireProfessionnels = () => {
           </div>
 
           <div>
-            <Label htmlFor="formationSouhaitee">Formation souhaitée *</Label>
+            <Label htmlFor="formationSouhaitee" className="text-simplonBlue font-medium">Formation souhaitée *</Label>
             <Select onValueChange={(value) => handleInputChange("formationSouhaitee", value)}>
-              <SelectTrigger>
+              <SelectTrigger className="border-simplonGrayBg focus:border-simplonBlue">
                 <SelectValue placeholder="Sélectionnez la formation" />
               </SelectTrigger>
-              <SelectContent className="bg-white">
+              <SelectContent className="bg-white border border-simplonGrayBg">
                 <SelectItem value="testing">Testing</SelectItem>
                 <SelectItem value="devops">DevOps</SelectItem>
                 <SelectItem value="dev_mobile">Développement Mobile</SelectItem>
@@ -211,20 +217,21 @@ export const FormulaireProfessionnels = () => {
             </Select>
           </div>
 
-          <div className="flex items-center space-x-2 p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center space-x-2 p-4 bg-simplonBgRed rounded-lg">
             <Checkbox
               id="autoriseMarketing"
               checked={formData.autoriseMarketing}
               onCheckedChange={(checked) => handleInputChange("autoriseMarketing", checked as boolean)}
+              className="border-simplonRed data-[state=checked]:bg-simplonRed"
             />
-            <Label htmlFor="autoriseMarketing" className="text-sm">
+            <Label htmlFor="autoriseMarketing" className="text-sm text-simplonGrayBody">
               J'autorise l'envoi d'emails et SMS de communication par ce centre de formation ou ses partenaires
             </Label>
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 py-3 text-lg"
+            className="w-full bg-simplonRed hover:bg-red-700 py-3 text-lg font-body font-medium"
             disabled={isLoading}
           >
             {isLoading ? (
