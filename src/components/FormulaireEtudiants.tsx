@@ -12,7 +12,6 @@ import { Loader2 } from "lucide-react";
 export const FormulaireEtudiants = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
-  const [webhookUrl, setWebhookUrl] = useState("");
   const [formData, setFormData] = useState({
     prenom: "",
     nom: "",
@@ -34,14 +33,8 @@ export const FormulaireEtudiants = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!webhookUrl) {
-      toast({
-        title: "Erreur",
-        description: "Veuillez entrer l'URL du webhook",
-        variant: "destructive",
-      });
-      return;
-    }
+    // URL du webhook prédéfinie pour les étudiants
+    const webhookUrl = "https://hooks.zapier.com/hooks/catch/etudiants/inscription";
 
     setIsLoading(true);
     console.log("Envoi des données:", formData);
@@ -97,18 +90,6 @@ export const FormulaireEtudiants = () => {
         <CardTitle className="text-2xl text-center">Formulaire d'inscription</CardTitle>
       </CardHeader>
       <CardContent className="p-6">
-        <div className="mb-4">
-          <Label htmlFor="webhook">URL du Webhook</Label>
-          <Input
-            id="webhook"
-            type="url"
-            placeholder="https://hooks.zapier.com/hooks/catch/..."
-            value={webhookUrl}
-            onChange={(e) => setWebhookUrl(e.target.value)}
-            className="mt-1"
-          />
-        </div>
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
