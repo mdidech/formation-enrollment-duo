@@ -8,22 +8,22 @@ const PartnersLogos = () => {
       <div className="flex justify-center items-center gap-8 flex-wrap">
         <div className="bg-white rounded-lg p-4 shadow-sm border border-simplonGrayBg">
           <img 
-            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=120&h=60&fit=crop"
-            alt="Partenaire 1"
+            src="https://www.simplon.ma/images/Simplon_Maghreb_Rouge.png"
+            alt="Simplon Maghreb"
             className="h-12 w-24 object-contain"
           />
         </div>
         <div className="bg-white rounded-lg p-4 shadow-sm border border-simplonGrayBg">
           <img 
-            src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=120&h=60&fit=crop"
-            alt="Partenaire 2"
+            src="https://aedibnet.eu/wp-content/uploads/2021/11/Digital_Africa-Logo.png"
+            alt="Digital Africa"
             className="h-12 w-24 object-contain"
           />
         </div>
         <div className="bg-white rounded-lg p-4 shadow-sm border border-simplonGrayBg">
           <img 
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=120&h=60&fit=crop"
-            alt="Partenaire 3"
+            src="/images/logo-t4s.png"
+            alt="Talent4Startups"
             className="h-12 w-24 object-contain"
           />
         </div>

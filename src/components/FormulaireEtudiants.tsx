@@ -23,6 +23,7 @@ export const FormulaireEtudiants = () => {
     situationActuelle: "",
     niveauEtudes: "",
     formationSouhaitee: "",
+    formationSource: "",
     autoriseMarketing: false,
   });
 
@@ -34,7 +35,7 @@ export const FormulaireEtudiants = () => {
     e.preventDefault();
     
     // URL du webhook prédéfinie pour les étudiants
-    const webhookUrl = "https://hooks.zapier.com/hooks/catch/etudiants/inscription";
+    const webhookUrl = "https://support.simplonmaroc.com/webhook/57f34999-1386-4403-b950-6e22f8b3a342";
 
     setIsLoading(true);
     console.log("Envoi des données:", formData);
@@ -45,7 +46,6 @@ export const FormulaireEtudiants = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        mode: "no-cors",
         body: JSON.stringify({
           ...formData,
           timestamp: new Date().toISOString(),
@@ -70,6 +70,7 @@ export const FormulaireEtudiants = () => {
         situationActuelle: "",
         niveauEtudes: "",
         formationSouhaitee: "",
+        formationSource: "",
         autoriseMarketing: false,
       });
     } catch (error) {
@@ -216,6 +217,24 @@ export const FormulaireEtudiants = () => {
                 </SelectContent>
               </Select>
             </div>
+            <div>
+              <Label htmlFor="formationSource">Où avez-vous entendu parler de cette formation ? *</Label>
+              <Select onValueChange={(value) => handleInputChange("formationSource", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Sélectionnez la source" />
+                </SelectTrigger>
+                <SelectContent className="bg-white">
+                  <SelectItem value="Instagram">Instagram</SelectItem>
+                  <SelectItem value="Facebook">Facebook</SelectItem>
+                  <SelectItem value="Linkedin">Linkedin</SelectItem>
+                  <SelectItem value="Twitter">Twitter</SelectItem>
+                  <SelectItem value="Tiktok">Tiktok</SelectItem>
+                  <SelectItem value="Influenceur">Influenceur</SelectItem>
+                  <SelectItem value="Ami">Par un ami</SelectItem>
+                  <SelectItem value="Recherche sur Google">Recherche sur Google</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
             <div className="flex items-center space-x-2 p-4 bg-gray-50 rounded-lg">
               <Checkbox
@@ -224,7 +243,7 @@ export const FormulaireEtudiants = () => {
                 onCheckedChange={(checked) => handleInputChange("autoriseMarketing", checked as boolean)}
               />
               <Label htmlFor="autoriseMarketing" className="text-sm">
-                J'autorise l'envoi d'emails et SMS de communication par ce centre de formation ou ses partenaires
+              J’autorise Simplon Maghreb et ses partenaires à utiliser mes données personnelles dans le cadre de ce projet, conformément à la réglementation en vigueur, notamment pour recevoir des communications par e-mail, WhatsApp et téléphone
               </Label>
             </div>
 

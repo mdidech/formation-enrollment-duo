@@ -18,7 +18,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          {/* <Route path="/" element={<Index />} /> */}
           <Route path="/inscription-etudiants" element={<InscriptionEtudiants />} />
           <Route path="/inscription-professionnels" element={<InscriptionProfessionnels />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

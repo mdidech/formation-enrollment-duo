@@ -24,6 +24,7 @@ export const FormulaireProfessionnels = () => {
     typeContrat: "",
     nomEntreprise: "",
     formationSouhaitee: "",
+    formationSource: "",
     autoriseMarketing: false,
   });
 
@@ -35,7 +36,7 @@ export const FormulaireProfessionnels = () => {
     e.preventDefault();
     
     // URL du webhook prédéfinie pour les professionnels
-    const webhookUrl = "https://hooks.zapier.com/hooks/catch/professionnels/inscription";
+    const webhookUrl = "https://support.simplonmaroc.com/webhook/af7f7289-6cb1-4227-9631-7eeda426b7f5";
 
     setIsLoading(true);
     console.log("Envoi des données:", formData);
@@ -46,7 +47,6 @@ export const FormulaireProfessionnels = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        mode: "no-cors",
         body: JSON.stringify({
           ...formData,
           timestamp: new Date().toISOString(),
@@ -72,6 +72,7 @@ export const FormulaireProfessionnels = () => {
         typeContrat: "",
         nomEntreprise: "",
         formationSouhaitee: "",
+        formationSource: "",
         autoriseMarketing: false,
       });
     } catch (error) {
@@ -186,13 +187,15 @@ export const FormulaireProfessionnels = () => {
                   <SelectValue placeholder="Sélectionnez votre situation" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border border-simplonGrayBg">
-                  <SelectItem value="working">Working</SelectItem>
-                  <SelectItem value="entrepreneur">Entrepreneur</SelectItem>
+                  <SelectItem value="Working / Large Company">Working / Large Company</SelectItem>
+                  <SelectItem value="Working / Startup">Working / Startup</SelectItem>
+                  <SelectItem value="Working / Institution of public sector">Working / Institution of public sector</SelectItem>
+                  <SelectItem value="Auto-entrepreneur / Freelancer">Auto-entrepreneur / Freelancer</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
-            {formData.situationActuelle === "working" && (
+            {formData.situationActuelle.split('/')[0].trim() === "Working" && (
               <div>
                 <Label htmlFor="typeContrat" className="text-simplonBlue font-medium">Type de contrat *</Label>
                 <Select onValueChange={(value) => handleInputChange("typeContrat", value)}>
@@ -209,7 +212,7 @@ export const FormulaireProfessionnels = () => {
               </div>
             )}
 
-            {formData.situationActuelle === "entrepreneur" && (
+            {formData.situationActuelle === "Auto-entrepreneur / Freelancer" && (
               <div>
                 <Label htmlFor="nomEntreprise" className="text-simplonBlue font-medium">Nom de votre entreprise / profil sur les sites de freelance *</Label>
                 <Input
@@ -236,6 +239,24 @@ export const FormulaireProfessionnels = () => {
                 </SelectContent>
               </Select>
             </div>
+            <div>
+              <Label htmlFor="formationSource">Où avez-vous entendu parler de cette formation ? *</Label>
+              <Select onValueChange={(value) => handleInputChange("formationSource", value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Sélectionnez la source" />
+                </SelectTrigger>
+                <SelectContent className="bg-white">
+                  <SelectItem value="Instagram">Instagram</SelectItem>
+                  <SelectItem value="Facebook">Facebook</SelectItem>
+                  <SelectItem value="Linkedin">Linkedin</SelectItem>
+                  <SelectItem value="Twitter">Twitter</SelectItem>
+                  <SelectItem value="Tiktok">Tiktok</SelectItem>
+                  <SelectItem value="Influenceur">Influenceur</SelectItem>
+                  <SelectItem value="Ami">Par un ami</SelectItem>
+                  <SelectItem value="Recherche sur Google">Recherche sur Google</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
             <div className="flex items-center space-x-2 p-4 bg-simplonBgRed rounded-lg">
               <Checkbox
@@ -245,7 +266,7 @@ export const FormulaireProfessionnels = () => {
                 className="border-simplonRed data-[state=checked]:bg-simplonRed"
               />
               <Label htmlFor="autoriseMarketing" className="text-sm text-simplonGrayBody">
-                J'autorise l'envoi d'emails et SMS de communication par ce centre de formation ou ses partenaires
+              J’autorise Simplon Maghreb et ses partenaires à utiliser mes données personnelles dans le cadre de ce projet, conformément à la réglementation en vigueur, notamment pour recevoir des communications par e-mail, WhatsApp et téléphone
               </Label>
             </div>
 
