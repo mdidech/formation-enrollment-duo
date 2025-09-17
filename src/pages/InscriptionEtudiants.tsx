@@ -12,8 +12,8 @@ const InscriptionEtudiants = () => {
         
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-simplonBlue mb-4 font-title">
-            Inscription au programme Talent4Startups | Power Up Your Digital Career !
+            <h1 className="text-3xl font-bold text-simplonRed mb-4 font-title">
+            Inscription au programme Talent4Startups | Unlock Your Future Now!
             </h1>
             <p className="text-simplonGrayBody text-lg">
             Déployé par Simplon Maghreb – En partenariat avec Digital Africa

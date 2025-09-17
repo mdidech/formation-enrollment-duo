@@ -2,9 +2,6 @@
 const PartnersLogos = () => {
   return (
     <div className="mb-8">
-      <p className="text-center text-simplonGrayBody mb-4 font-body">
-        En partenariat avec
-      </p>
       <div className="flex justify-center items-center gap-8 flex-wrap">
         <div className="bg-white rounded-lg p-4 shadow-sm border border-simplonGrayBg">
           <img 
